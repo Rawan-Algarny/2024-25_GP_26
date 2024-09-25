@@ -1,4 +1,4 @@
-#£ 🖋️ LUSTRA AUTHORS
+### 🖋️ LUSTRA AUTHORS
 ---
 +Developers: 
   +Rawan Algarny | rawanalgarny@gmail.com
