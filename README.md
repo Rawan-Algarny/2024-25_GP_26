@@ -16,7 +16,7 @@ LUSTRA is an intelligent street lighting system that reduces energy usage and ma
   - High reliability and security
 
 <h2>:memo: Launching Instructions</h2>
-TBA
+To use the Smart Street Lighting interface, go to the website, log in with your admin credentials, and use the dashboard to add or edit street lights, check system status, manage users, generate reports, and get support.
 
 ##  <img src="https://github.com/LamaAlmajhad/test/assets/98522894/0393ad9f-ee33-4bd8-9621-b9019e2dce1b" alt="github logo" height="30" width="40">  GitHub repository link  
 
