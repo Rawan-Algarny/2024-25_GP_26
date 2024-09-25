@@ -18,6 +18,6 @@ LUSTRA is an intelligent street lighting system that reduces energy usage and ma
 <h2>:memo: Launching Instructions</h2>
 TBA
 
-##  <img src="https://github.com/LamaAlmajhad/test/assets/98522894/0393ad9f-ee33-4bd8-9621-b9019e2dce1b" alt="github logo" height="30" width="40">  GitHub repository link
-## GitHub repository link 
-## https://github.com/Rawan-Algarny/2024-25_GP_26.git
+##  <img src="https://github.com/LamaAlmajhad/test/assets/98522894/0393ad9f-ee33-4bd8-9621-b9019e2dce1b" alt="github logo" height="30" width="40">  GitHub repository link  
+
+https://github.com/Rawan-Algarny/2024-25_GP_26.git
