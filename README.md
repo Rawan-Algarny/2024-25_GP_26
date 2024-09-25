@@ -1,4 +1,4 @@
-##Welcome to LUSTRA
+## Welcome to LUSTRA
 Are you tired of outdated streetlights that waste energy and leave your neighborhood dimly lit? Then LUSTRA is the solution for you! Our innovative Smart Streetlighting project is here to transform urban lighting for a brighter, safer future. Imagine a city where streetlights adapt to real-time conditions, saving energy while enhancing safety for everyone.
 
 ## Introduction
