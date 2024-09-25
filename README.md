@@ -1,1 +1,2 @@
-# 2024-25_GP_26
+## Introduction
+The Smart Streetlighting project aims to improve urban lighting by using Internet of Things (IoT) technology. As cities expand, traditional streetlights are becoming inefficient and costly. This project will create an intelligent street lighting system that saves energy, increases safety, and lowers maintenance costs. By using sensors and a centralized management platform, the project will help make cities safer and more sustainable, addressing the growing need for smart city solutions.
