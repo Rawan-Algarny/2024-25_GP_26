@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head> <title> database prototype</title>
+ 
+  <style>
+    dt {font-weight:bold; color:#dce2e8}
+    dl {text-align:center; line-height:3em;}
+    h2 {color:#22b25c;}
+  </style>
+  <link rel= "stylesheet" href="css/ABC.css">
+</head>
+
+<body>
+<header>
+<img src="img/Lustra_Logo.png" alt="Lustra logo" width=150px height=150px>
+<h1>database prototype</h1>
+  
+</header>
+<aside >
+
+  <ul>
+<li><a href= "index - Copy.html"> Home page</a> </li>
+
+
+<li> <a href= "aboutus - Copy.html"> about us</a> </li>
+  
+   
+ <li>  <a href= "contactus.html"> contact us </a> </li>
+ </ul>
+
+</aside>
+<main>
+
+<h2 id="hhh"> current streetlights </h2>
+<table>
+
+<thead>
+<tr> 
+  <th>ID</th>
+ <th>Location</th>
+ <th>Status</th>
+ <th>Actions</th>
+
+  </tr>
+  
+  
+</thead>
+
+<tbody>
+   <tr>
+
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td></td>
+
+  </tr>
+
+</tbody>
+
+</table>
+
+
+
+<br>
+<h2> Add a streetlight </h2>
+
+<form id="form">
+  <fieldset>
+    <ul>
+      <li><label>Username: <input type="text" id="username"></label></li><br>
+      <li><label>Email: <input type="email" id="email"></label></li><br>
+      <li><label>Password: <input type="password" id="password"></label></li><br>
+    </ul>
+    <button type="submit">Submit</button>
+    <input type="reset" value="reset">
+  </fieldset>
+</form>
+
+</main>
+
+<script>
+document.getElementById('form').addEventListener('submit', async function(event) {
+  event.preventDefault();  // Prevent the default form submission behavior
+// Collect form data
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  // Send the form data to the server using fetch
+  try {
+        const response = await fetch('/add-admin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: username,
+            email: email,
+            password: password
+          })
+        });
+      } catch (err) {
+        console.log('Error submitting form');
+        console.error('Error:', err);
+      }
+    }
+  );
+
+</script>
+<footer>
+<p><em>©2024 Lustra<em></p>
+</footer>
+
+
+
+
+</body>
+</html>
+
+
