@@ -3,19 +3,13 @@ const mongoose = require('mongoose');
 //collection StreetLight schema
 const streetLightSchema = new mongoose.Schema(
     {
-        status: {
+        status: {      //current operational state
             type: String,
-            required: [true, 'A streetlight must have a status'],
             enum: {
-              values: ['on', 'off', 'malfunctioning'],
-              message: 'Status is either: on, off, or malfunctioning'
-            }
-        },
-        brightnessLevel: {
-            type: Number,
-            required: [true, 'A streetlight must have a brightness level'],
-            min: [0, 'Brightness level must be at least 0'],
-            max: [100, 'Brightness level must be at most 100'],
+              values: ['functioning', 'malfunctioning'],
+              message: 'Status is either: functioning or malfunctioning'
+            },
+            default: 'functioning'
         },
         location: {
             type: {
@@ -33,8 +27,8 @@ const streetLightSchema = new mongoose.Schema(
         }
     }
 );
-
 streetLightSchema.index({ location: '2dsphere' });   // 2dsphere index to enable geospatial queries
 
+//creating a model for ControlNode collection
 const StreetLight= mongoose.model('StreetLight',streetLightSchema);
 module.exports = StreetLight;
