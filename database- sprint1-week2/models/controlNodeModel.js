@@ -11,18 +11,17 @@ const controlNodeSchema = new mongoose.Schema(
         status: {      //current operational state
             type: String,
             enum: {
-              values: ['online', 'offline', 'maintenance'],
-              message: 'Status is either: online, offline, or maintenance'
+              values: ['functioning', 'malfunctioning'],
+              message: 'Status is either: functioning or malfunctioning'
             },
-            default: 'offline'
-          },
-        createdAt: {   //when the control node was added to the system
-            type: Date,
-            default: Date.now,
+            default: 'functioning'
+        },
+        model:{
+            type: String,
+            trim:true
         }
-        
     }
 );
-
+//creating a model for ControlNode collection
 const ControlNode= mongoose.model('ControlNode',controlNodeSchema);
 module.exports = ControlNode;
