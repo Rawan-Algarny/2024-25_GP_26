@@ -5,8 +5,8 @@ const controlNodeSchema = new mongoose.Schema(
     {
         streetLightID: {    //refernces the streetlight it manages
             type: mongoose.Schema.ObjectId,
-            ref: 'streetLight', // Reference to streetlight managed by this control node
-            default: []
+            ref: 'streetlights', // Reference to streetlight managed by this control node
+            default: null
         },
         status: {      //current operational state
             type: String,
