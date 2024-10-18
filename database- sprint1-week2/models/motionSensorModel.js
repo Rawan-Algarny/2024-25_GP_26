@@ -11,25 +11,25 @@ const motionSensorSchema = new mongoose.Schema(
         status: {      //current operational state
             type: String,
             enum: {
-              values: ['online', 'offline', 'maintenance'],
-              message: 'Status is either: online, offline, or maintenance'
+              values: ['functioning', 'malfunctioning'],
+              message: 'Status is either: functioning or malfunctioning'
             },
-            default: 'offline'
+            default: 'functioning'
         },
-        detectionRange: {   //distance (in meters) within which the sensor can detect movement
-            type: Number,
+        range: {   //distance (in meters) within which the sensor can detect movement
+            type: Double,
             required: [true, 'A motion sensor must have a detection range'],
         },
-        lastDetectedMovement: {  //timestamp of the most recent movement detected by the sensor
-            type: Date,
-            default: null 
+        batterylevel: {  //bettery level percentage of the hardware
+            type: Double,
+            required: [true, 'A motion sensor must have a battery level.'] 
         },
-        createdAt: {  //when the motion sensor was added to the system
-            type: Date,
-            default: Date.now,
+        model:{
+            type: String,
+            trim:true
         }
     }
 );
-
+//creating a model for ControlNode collection
 const MotionSensor= mongoose.model('MotionSensor',motionSensorSchema);
 module.exports = MotionSensor;
