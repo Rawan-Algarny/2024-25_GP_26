@@ -5,8 +5,8 @@ const motionSensorSchema = new mongoose.Schema(
     {
         streetLightID: {    //refernces the streetlight connected to
             type: mongoose.Schema.ObjectId,
-            ref: 'streetLight', // Reference to streetlight connected to this motion sensor
-            default: []
+            ref: 'streetlights', // Reference to streetlight connected to this motion sensor
+            default: null
         },
         status: {      //current operational state
             type: String,
