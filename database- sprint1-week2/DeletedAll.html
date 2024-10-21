@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Streetlight</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+      background-color: #0063B2;
+      color: #fff;
+      padding: 20px;
+      width: 200px;
+      height: 100vh;
+      float: left;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 0;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #005796;
+    }
+
+    .sidebar a.active {
+      font-weight: bold;
+    }
+
+    /* Main content styles */
+    .main-content {
+      margin-left: 220px;
+      padding: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      max-width: 100px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .status-active {
+      color: #2ECC40;
+    }
+
+    .status-on {
+      color: #2ECC40;
+    }
+
+    .delete-icon {
+      color: #FF4136;
+      cursor: pointer;
+    }
+
+    /* Alert styles */
+    .alert-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    .alert-message {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .alert-message.success {
+      background-color: #2ECC40;
+      color: #fff;
+    }
+
+    .alert-message.error {
+      background-color: #FF4136;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <img src="logo.png" alt="Lustra Logo">
+    </div>
+    <a href="#">Manage Zone</a>
+    <a href="#" id="manage-streetlight" class="active">Manage Streetlight</a>
+    <ul>
+      <li><a href="#" id="all-streetlight-link" class="active">All Streetlight</a></li>
+      <li><a href="#" id="add-streetlight-link">Add Streetlight</a></li>
+    </ul>
+    <a href="#">Monitor Motion events</a>
+    <a href="#">View Consumption Analytics Report</a>
+    <a href="#">Monitor Fault Notifications</a>
+  </div>
+
+  <div class="main-content">
+    <h1>Manage Streetlight</h1>
+    <div id="all-streetlight">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Streetlight</th>
+            <th>Zone</th>
+            <th>Location</th>
+            <th>On / Off</th>
+            <th>Brightness</th>
+            <th>Delete</th>
+            <th>Update</th>
+            <th>Zone Setting</th>
+            <th>Controlling Profile</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12345</td>
+            <td><span class="status-active">Active</span></td>
+            <td>Laptop</td>
+            <td>Manual</td>
+            <td>-</td>
+            <td><span class="status-on">On</span></td>
+            <td>-</td>
+            <td><i class="delete-icon">&#128465;</i></td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>86420</td>
+            <td><span class="status-active">Active</span></td>
+            <td>Monitor</td>
+            <td>Manual</td>
+            <td>-</td>
+            <td><span class="status-on">On</span></td>
+            <td>-</td>
+            <td><i class="delete-icon">&#128465;</i></td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>13579</td>
+            <td><span class="status-active">Active</span></td>
+            <td>Scanner</td>
+            <td>Manual</td>
+            <td>-</td>
+            <td><span class="status-on">On</span></td>
+            <td>-</td>
+            <td><i class="delete-icon">&#128465;</i></td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>67890</td>
+            <td><span class="status-active">Active</span></td>
+            <td>Printer</td>
+            <td>Manual</td>
+            <td>-</td>
+            <td><span class="status-on">On</span></td>
+            <td>-</td>
+            <td><i class="delete-icon">&#128465;</i></td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="add-streetlight" style="display: none;">
+      <!-- Add Streetlight form goes here -->
+    </div>
+  </div>
+
+  <div class="alert-overlay" id="alert-overlay">
+    <div class="alert-message error" id="alert-message">
+      Are you sure you want to delete this street light?
+      <div>
+        <button class="confirm-btn">Yes</button>
+        <button class="cancel-btn">No</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const deleteIcons = document.querySelectorAll('.delete-icon');
+    const alertOverlay = document.getElementById('alert-overlay');
+    const alertMessage = document.getElementById('alert-message');
+    const manageStreetlightLink = document.getElementById('manage-streetlight');
+    const allStreetlightLink = document.getElementById('all-streetlight-link');
+    const addStreetlightLink = document.getElementById('add-streetlight-link');
+    const allStreetlightSection = document.getElementById('all-streetlight');
+    const addStreetlightSection = document.getElementById('add-streetlight');
+    let isDeleting = false;
+
+    deleteIcons.forEach(icon => {
+      icon.addEventListener('click', () => {
+        alertOverlay.style.opacity = '1';
+        alertOverlay.style.visibility = 'visible';
+        isDeleting = true;
+      });
+    });
+
+    document.querySelector('.confirm-btn').addEventListener('click', () => {
+      if (isDeleting) {
+        alertOverlay.style.opacity = '0';
+        alertOverlay.style.visibility = 'hidden';
+        alertMessage.classList.remove('error');
+        alertMessage.classList.add('success');
+        alertMessage.textContent = 'Successfully deleted!';
+
+        // Keep the success message visible for 4 minutes
+        setTimeout(() => {
+          alertOverlay.style.opacity = '0';
+          alertOverlay.style.visibility = 'hidden';
+          alertMessage.classList.remove('success');
+          alertMessage.textContent = 'Are you sure you want to delete this street light?';
+        }, 240000); // 4 minutes
+      }
+    });
+
+    document.querySelector('.cancel-btn').addEventListener('click', () => {
+      alertOverlay.style.opacity = '0';
+      alertOverlay.style.visibility = 'hidden';
+      isDeleting = false;
+    });
+
+    manageStreetlightLink.addEventListener('click', () => {
+      manageStreetlightLink.classList.add('active');
+      allStreetlightLink.classList.add('active');
+      addStreetlightLink.classList.remove('active');
+      allStreetlightSection.style.display = 'block';
+      addStreetlightSection.style.display = 'none';
+    });
+
+    allStreetlightLink.addEventListener('click', () => {
+      manageStreetlightLink.classList.add('active');
+      allStreetlightLink.classList.add('active');
+      addStreetlightLink.classList.remove('active');
+      allStreetlightSection.style.display = 'block';
+      addStreetlightSection.style.display = 'none';
+    });
+
+    addStreetlightLink.addEventListener('click', () => {
+      manageStreetlightLink.classList.add('active');
+      allStreetlightLink.classList.remove('active');
+      addStreetlightLink.classList.add('active');
+      allStreetlightSection.style.display = 'none';
+      addStreetlightSection.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
