@@ -1,0 +1,1 @@
+const AdmMotionSensorin = require('../models/motionSensorModel');

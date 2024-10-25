@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>prototype</title>
+
+    <style>
+      dt {
+        font-weight: bold;
+        color: #dce2e8;
+      }
+      dl {
+        text-align: center;
+        line-height: 3em;
+      }
+      h2 {
+        color: #22b25c;
+      }
+    </style>
+    <link rel="stylesheet" href="css/ABC.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="prototype.html">
+        <img
+          src="img/Lustra_Logo.png"
+          alt="Lustra logo"
+          width="150px"
+          height="150px"
+        />
+      </a>
+      <h1>Prototype</h1>
+    </header>
+    <main>
+      <h2 id="hhh">current streetlights</h2>
+      <nav id="tableContainer">
+        <table id="streetlightTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+
+              <th>Status</th>
+              <th>Location:coordinates</th>
+              <th>Location:address</th>
+              <th>ApplyZoneSetting</th>
+              <th>ApplyProfileSetting</th>
+              <th>Controls</th>
+            </tr>
+          </thead>
+
+          <tbody></tbody>
+        </table>
+      </nav>
+      <br />
+      <button onclick="window.location.href='addStreetlight.html';">
+        Add a streetlight
+      </button>
+    </main>
+    <footer>
+      <p><em>©2024 Lustra </em></p>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
