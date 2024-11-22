@@ -3,8 +3,8 @@
 ###
 | Developer           | Email                     |
 |---------------------|---------------------------|
-| Rawan Algarny       | rawanalgarny@gmail.com    |
-| Sarah Algarny       | sarahalgarny@gmail.com    |
+| Rawan Algarny       |443201055@student.ksu.edu.sa |
+| Sarah Algarny       | 443201054@student.ksu.edu.sa |
 | Raseel Aldawish     | 443203036@student.ksu.edu.sa |
 | Hend Alghamdi       | 443200868@student.ksu.edu.sa |
 ###
