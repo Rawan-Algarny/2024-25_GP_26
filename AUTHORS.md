@@ -9,7 +9,7 @@
 | Hend Alghamdi       | 443200868@student.ksu.edu.sa |
 ###
 - Special Thanks:
-  - Dr.Lamia Albraheem | lalbraheem@ksu.edu.sa
+  - Dr.Lamia Albraheem | lalbraheem@KSU.EDU.SA
   (Project Supervisor)
   ---
 ###
